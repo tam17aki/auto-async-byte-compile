@@ -156,7 +156,8 @@ This minor-mode performs `batch-byte-compile' automatically after saving elisp f
   (with-current-buffer result-buffer
     (goto-char (point-min))
     (while (re-search-forward (concat (char-to-string 13) "$") (point-max) t)
-      (replace-match "" nil nil)))
+      (replace-match "" nil nil))
+    (goto-char (point-max)))
   (if (eq status 'normal)
       (message "%s completed" process-name)
     (funcall auto-async-byte-compile-display-function result-buffer)))
