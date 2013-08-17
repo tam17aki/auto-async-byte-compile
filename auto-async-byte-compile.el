@@ -152,15 +152,14 @@ This minor-mode performs `batch-byte-compile' automatically after saving elisp f
     (run-hooks 'auto-async-byte-compile-hook)))
 
 (defun aabc/display-function (process-name result-buffer status)
+  ;; remove ^M
+  (with-current-buffer result-buffer
+    (goto-char (point-min))
+    (while (re-search-forward (concat (char-to-string 13) "$") (point-max) t)
+      (replace-match "" nil nil)))
   (if (eq status 'normal)
       (message "%s completed" process-name)
     (funcall auto-async-byte-compile-display-function result-buffer)))
-
-(defadvice aabc/display-function (after aabc/display-function-remove-CR activate)
-  (with-current-buffer (ad-get-arg 1)
-    (goto-char (point-min))
-    (while (re-search-forward (concat (char-to-string 13) "$") (point-max) t)
-      (replace-match "" nil nil))))
 
 (defun aabc/status (exitstatus buffer)
   (cond ((eq exitstatus 1)
