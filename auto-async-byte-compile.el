@@ -73,35 +73,9 @@
 
 ;;; Customize:
 ;;
-;;
 ;; All of the above can customize by:
 ;;      M-x customize-group RET auto-async-byte-compile RET
 ;;
-
-
-;;; Bug Report:
-;;
-;; If you have problem, send a bug report via M-x aabc/-send-bug-report.
-;; The step is:
-;;  0) Setup mail in Emacs, the easiest way is:
-;;       (setq user-mail-address "your@mail.address")
-;;       (setq user-full-name "Your Full Name")
-;;       (setq smtpmail-smtp-server "your.smtp.server.jp")
-;;       (setq mail-user-agent 'message-user-agent)
-;;       (setq message-send-mail-function 'message-smtpmail-send-it)
-;;  1) Be sure to use the LATEST version of auto-async-byte-compile.el.
-;;  2) Enable debugger. M-x toggle-debug-on-error or (setq debug-on-error t)
-;;  3) Use Lisp version instead of compiled one: (load "auto-async-byte-compile.el")
-;;  4) Do it!
-;;  5) If you got an error, please do not close *Backtrace* buffer.
-;;  6) M-x aabc/-send-bug-report and M-x insert-buffer *Backtrace*
-;;  7) Describe the bug using a precise recipe.
-;;  8) Type C-c C-c to send.
-;;  # If you are a Japanese, please write in Japanese:-)
-
-;;; History:
-
-;; See http://www.rubyist.net/~rubikitch/gitlog/auto-async-byte-compile.txt
 
 ;;; Code:
 
